@@ -1,0 +1,54 @@
+{%extends 'base.html'%} {%block content%}
+<h1 class="text-center text-info mt-5">this is profile page</h1>
+<a href="{%url 'update_profile'%}" class="d-flex justify-content-center mt-5"
+  ><button class="btn btn-primary p-2">Update Profile</button></a
+>\
+
+<h1 class="text-info text-center mt-5 mb-5">{{books | length}} Item Found</h1>
+
+<div class="row m-5">
+  <div class="col-9">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Borrowing Price</th>
+          <th scope="col">Category</th>
+          
+          
+        </tr>
+      </thead>
+      <tbody>
+        {%for book in books%}
+        <tr>
+          <td>{{book.title}}</td>
+          <td>{{book.borrowing_price}}</td>
+          <td>{{book.category.name}}</td>
+         
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Borrowing Price</th>
+          <th scope="col">Return Book</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for borrow in borrows%}
+        <tr>
+          <td>{{borrow.borrow_date}}</td>
+          <td><a href="{%url 'return' borrow.id%}" class="btn btn-danger p-2">Return Book</a></td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{%endblock%}

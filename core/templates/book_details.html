@@ -1,0 +1,32 @@
+{%extends 'base.html'%} {%block content%}
+<div class="d-flex justify-content-center">
+  <div
+    class="card mt-5 mb-5 p-3 d-flex justify-content-center"
+    style="
+      width: 60%;
+      border: 2px solid black;
+      background-color: rgb(255, 220, 196);
+    "
+  >
+    <img class="card-img-top" src="{{book.img.url}}" alt="Book image" />
+    <div class="card-body">
+      <h3 class="mb-5 text-center">Book Name : {{book.title}}</h3>
+      <h5 class="text-center">Borrowing Price: {{book.borrowing_price}}$</h5>
+      <h5 class="text-center">category : {{book.category.name}}</h5>
+      <h5 class="text-center">description : {{book.description}}</h5>
+      <h5 class="text-center">
+        <a
+          href="{%url 'borrowing' book.id %}"
+          class="btn btn-success p-2 mt-5 mb-5"
+          >Borrow book</a
+        >
+      </h5>
+    </div>
+  </div>
+</div>
+<div class="d-flex justify-content-center mt-5 mb-5">
+  <a href="{%url 'review' book.id %}" class="btn btn-primary p-2 mx-3">Add Review</a>
+  <a href="{%url 'show_review'%}" class="btn btn-primary p-2">Show Review</a>
+</div>
+
+{%endblock%}

@@ -1,0 +1,14 @@
+{%extends 'base.html' %}
+{% load crispy_forms_tags %}
+{%block content%}
+<form method="post" style="margin: auto;width: 35%;">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+    {{error}}
+    {% endfor %}
+    {% endif %}
+    {{form | crispy}}
+    <button type="submit" class="btn btn-primary p-2">Submit</button>
+</form>
+{%endblock%}

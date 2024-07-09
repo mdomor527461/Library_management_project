@@ -1,0 +1,45 @@
+{%extends 'base.html' %}
+{% load crispy_forms_tags %}
+{%block content%}
+<div class="row m-5 container">
+    <div class="col-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            
+            
+          </tr>
+        </thead>
+        <tbody>
+          {%for name in names%}
+          <tr>
+            <td>{{name}}</td>
+           
+           
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="col-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Reviews</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for body in bodies%}
+          <tr>
+            <td>{{body}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+
+{%endblock%}
